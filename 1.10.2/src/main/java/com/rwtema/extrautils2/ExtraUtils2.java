@@ -75,7 +75,7 @@ public class ExtraUtils2 {
 	public static RuntimeException toThrow = null;
 	public static boolean allowNonCreativeHarvest = false;
 	public static boolean allowNonCreativeConfig = false;
-	public static int cursedEarthMobNearbyRequirement = 8; // CL
+	public static int cursedEarthMobNearbyRequirement = 2; // CL
 
 	static {
 		boolean d;
