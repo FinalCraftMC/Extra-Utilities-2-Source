@@ -1,12 +1,12 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = "https://files.minecraftforge.net/maven" }
         maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
-}
+    }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
@@ -20,14 +20,11 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.matthewprenger.cursegradle'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-ext.priv = parseConfig(file('../1.10.2/private.properties'))
 ext.version_config = parseConfig(file('../1.10.2/version.properties'))
 
 version = ext.version_config.version_no
-group= "com.rwtema.extrautils2" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.rwtema.extrautils2" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "extrautils2-1.12"
-
-
 
 
 def parseConfig(File config) {
@@ -44,9 +41,9 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.5.2769"
+    version = "1.12.2-14.23.4.2766"
     runDir = "run"
-    
+
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
@@ -61,7 +58,7 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -84,13 +81,13 @@ dependencies {
 repositories {
     maven {
         name = "thiakil"
-        url = "http://maven.thiakil.com"
+        url = "https://maven.thiakil.com"
     }
     maven {
-        url "http://dvs1.progwml6.com/files/maven"
+        url "https://dvs1.progwml6.com/files/maven"
     }
     maven {
-        url "http://maven.blamejared.com"
+        url "https://maven.blamejared.com"
     }
 }
 
@@ -112,11 +109,11 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version': project.version, 'mcversion': project.minecraft.version
     }
-        
+
     // copy everything else except the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
@@ -131,7 +128,6 @@ jar {
 //	    attributes "FMLCorePluginContainsFMLMod": "true"
     }
 }
-
 
 
 // Create deobf dev jars
@@ -168,26 +164,10 @@ sourceSets {
             srcDir '../1.10.2/src/main/resources'
         }
     }
-    api{
+    api {
         java {
             srcDir '../1.10.2/src/api/java'
         }
     }
 
-}
-
-
-curseforge {
-    apiKey = priv.cfkey
-    project {
-        id = "225561"
-        changelog = file('../1.10.2/src/changelog.txt')
-        releaseType = "release"
-        addGameVersion "1.12"
-        addGameVersion "1.12.1"
-        addGameVersion "1.12.2"
-        mainArtifact (jar) {
-            displayName = "Extra Utilities 2 - 1.12 - ${version_config.version_no}"
-        }
-    }
 }
