@@ -125,7 +125,7 @@ public class ExtraUtils2 {
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		allowNonCreativeHarvest = config.getBoolean(ConfigHelper.GAMEPLAY_CATEGORY, "Creative Blocks: Breakable", false, "Allow Non-Creative players to break/harvest creative blocks.");
 		allowNonCreativeConfig = config.getBoolean(ConfigHelper.GAMEPLAY_CATEGORY, "Creative Blocks: Configurable", false, "Allow Non-Creative players to configure creative blocks.");
-		cursedEarthMobNearbyRequirement = config.getInt("Mob Nearby Requirement", "Cursed Earth: Configuration", 8, 1, 128, "Prevents mob spawning where there is more mobs nearby than this value"); // CL
+		cursedEarthMobNearbyRequirement = config.getInt("Mob Nearby Requirement", "Cursed Earth: Configuration", 2, 1, 128, "Prevents mob spawning where there is more mobs nearby than this value"); // CL
 		XU2Entries.init();
 		CompatHelper112.loadVersionSpecificEntries();
 		if (deobf_folder) {
