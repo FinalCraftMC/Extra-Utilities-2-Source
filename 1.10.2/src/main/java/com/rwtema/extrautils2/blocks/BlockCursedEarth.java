@@ -1,6 +1,7 @@
 package com.rwtema.extrautils2.blocks;
 
 import com.google.common.collect.Lists;
+import com.rwtema.extrautils2.ExtraUtils2;
 import com.rwtema.extrautils2.backend.XUBlockConnectedTextureBase;
 import com.rwtema.extrautils2.backend.XUBlockStateCreator;
 import com.rwtema.extrautils2.backend.entries.XU2Entries;
@@ -250,8 +251,11 @@ public class BlockCursedEarth extends XUBlockConnectedTextureBase {
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(-7, 4, 7);
 			int numCreaturesNearby = world.getEntitiesWithinAABB(EntityLiving.class, bb, input -> input != null && input.isCreatureType(EnumCreatureType.MONSTER, false)).size();
 
-			if (numCreaturesNearby < 8)
+			// CL start - Use the config value instead of a hardcoded
+			if (numCreaturesNearby < ExtraUtils2.cursedEarthMobNearbyRequirement) {
 				trySpawnMob(world, pos);
+			}
+			// CL end
 		}
 	}
 
