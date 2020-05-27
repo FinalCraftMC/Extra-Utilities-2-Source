@@ -248,7 +248,7 @@ public class BlockCursedEarth extends XUBlockConnectedTextureBase {
 
 			if (light >= 9 || spread && rand.nextInt(8) != 0) return;
 
-			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(-7, 4, 7);
+			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(ExtraUtils2.cursedEarthAxisCheckX, ExtraUtils2.cursedEarthAxisCheckY, ExtraUtils2.cursedEarthAxisCheckZ); // CL
 			int numCreaturesNearby = world.getEntitiesWithinAABB(EntityLiving.class, bb, input -> input != null && input.isCreatureType(EnumCreatureType.MONSTER, false)).size();
 
 			// CL start - Use the config value instead of a hardcoded
