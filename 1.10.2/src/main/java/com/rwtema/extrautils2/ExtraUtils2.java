@@ -15,6 +15,7 @@ import com.rwtema.extrautils2.book.BookHandler;
 import com.rwtema.extrautils2.chunkloading.XUChunkLoaderManager;
 import com.rwtema.extrautils2.commands.CommandDebug;
 import com.rwtema.extrautils2.commands.CommandPowerSharing;
+import com.rwtema.extrautils2.commands.CommandToggleCursedEarth;
 import com.rwtema.extrautils2.compatibility.CompatFinalHelper;
 import com.rwtema.extrautils2.compatibility.CompatHelper112;
 import com.rwtema.extrautils2.compatibility.MyCreativeTabs;
@@ -82,6 +83,7 @@ public class ExtraUtils2 {
 	public static int cursedEarthAxisCheckY = 6;
 	public static int cursedEarthAxisCheckZ = 12;
 	public static int cursedEarthLightLevel = 9;
+	public static boolean cursedEarthEnabled = true;
 	// CL end
 
 	static {
@@ -235,6 +237,7 @@ public class ExtraUtils2 {
 
 
 		event.registerServerCommand(new CommandDebug());
+		event.registerServerCommand(new CommandToggleCursedEarth());
 		PotionsHelper.serverStart();
 	}
 

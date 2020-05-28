@@ -247,6 +247,8 @@ public class BlockCursedEarth extends XUBlockConnectedTextureBase {
 			}
 
 			// CL start - use custom config settings to control how cursed earth works
+			if (!ExtraUtils2.cursedEarthEnabled) return;
+
 			if (light >= ExtraUtils2.cursedEarthLightLevel || spread && rand.nextInt(8) != 0) return;
 
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(ExtraUtils2.cursedEarthAxisCheckX, ExtraUtils2.cursedEarthAxisCheckY, ExtraUtils2.cursedEarthAxisCheckZ); // CL
