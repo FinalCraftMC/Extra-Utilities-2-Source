@@ -81,6 +81,7 @@ public class ExtraUtils2 {
 	public static int cursedEarthAxisCheckX = -12;
 	public static int cursedEarthAxisCheckY = 6;
 	public static int cursedEarthAxisCheckZ = 12;
+	public static int cursedEarthLightLevel = 9;
 	// CL end
 
 	static {
@@ -136,6 +137,7 @@ public class ExtraUtils2 {
 		cursedEarthAxisCheckX = config.getInt("Axis Check X", "Cursed Earth: Configuration", -12, 1, 100, "Set the x-axis check for getting nearby entities for cursed earth spawning");
 		cursedEarthAxisCheckY = config.getInt("Axis Check Y", "Cursed Earth: Configuration", 6, 1, 100, "Set the y-axis check for getting nearby entities for cursed earth spawning");
 		cursedEarthAxisCheckZ = config.getInt("Axis Check Z", "Cursed Earth: Configuration", 12, 1, 100, "Set the z-axis check for getting nearby entities for cursed earth spawning");
+		cursedEarthLightLevel = config.getInt("Light Level", "Cursed Earth: Configuration", 9, 1, 16, "Set the light level required for cursed earth to work");
 		// CL end
 		XU2Entries.init();
 		CompatHelper112.loadVersionSpecificEntries();

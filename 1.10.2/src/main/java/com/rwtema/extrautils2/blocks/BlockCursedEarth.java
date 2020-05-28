@@ -246,12 +246,12 @@ public class BlockCursedEarth extends XUBlockConnectedTextureBase {
 				spread = trySpread(worldIn, pos, rand, false, world, spread, blockpos);
 			}
 
-			if (light >= 9 || spread && rand.nextInt(8) != 0) return;
+			// CL start - use custom config settings to control how cursed earth works
+			if (light >= ExtraUtils2.cursedEarthLightLevel || spread && rand.nextInt(8) != 0) return;
 
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(ExtraUtils2.cursedEarthAxisCheckX, ExtraUtils2.cursedEarthAxisCheckY, ExtraUtils2.cursedEarthAxisCheckZ); // CL
 			int numCreaturesNearby = world.getEntitiesWithinAABB(EntityLiving.class, bb, input -> input != null && input.isCreatureType(EnumCreatureType.MONSTER, false)).size();
 
-			// CL start - Use the config value instead of a hardcoded
 			if (numCreaturesNearby < ExtraUtils2.cursedEarthMobNearbyRequirement) {
 				trySpawnMob(world, pos);
 			}
