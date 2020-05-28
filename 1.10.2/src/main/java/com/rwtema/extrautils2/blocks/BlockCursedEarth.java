@@ -189,7 +189,7 @@ public class BlockCursedEarth extends XUBlockConnectedTextureBase {
 		WorldServer world = (WorldServer) worldIn;
 
 		int light = world.getLightFromNeighbors(pos.up());
-		if (light >= 9) {
+		if (light >= ExtraUtils2.cursedEarthLightLevel) { // CL - Check the light level from the config
 			IBlockState blockState = world.getBlockState(pos.up());
 			boolean nearbyFire = blockState.getMaterial() == Material.FIRE;
 			if (nearbyFire) {
